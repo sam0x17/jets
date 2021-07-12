@@ -36,7 +36,8 @@ module Jets::Builders
 
       # Create symlink that will point to the gems in the Lambda Layer:
       #   stage/opt/ruby/gems/2.5.0 -> /opt/ruby/gems/2.5.0
-      FileUtils.ln_sf("/opt/ruby/gems/#{Jets::Gems.ruby_folder}", src)
+      # FileUtils.ln_sf("/opt/ruby/gems/#{Jets::Gems.ruby_folder}", src)
+      sh "ln -s '/opt/ruby/gems/#{Jets::Gems.ruby_folder}' '#{src}'"
     end
 
     # replace_compiled_gems:
