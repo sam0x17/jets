@@ -204,7 +204,7 @@ module Jets::Builders
       headline "Compling assets in current project directory"
       return unless webpacker_included?
 
-      sh("yarn install")
+      sh("yarn install --verbose")
       webpack_command = File.exist?("#{Jets.root}/bin/webpack") ?
           "bin/webpack" :
           `which webpack`.strip
